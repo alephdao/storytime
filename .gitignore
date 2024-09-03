@@ -1,0 +1,11 @@
+# Environment variables
+.env
+
+# Database file
+users.db
+
+# Ignore input, output, venv, and scripts folders
+input/
+output/
+venv/
+scripts/
