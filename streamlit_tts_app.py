@@ -210,7 +210,7 @@ def generate_summary_chunk(book_title, reading_difficulty, total_char_count, chu
     Begin the abridged text for this section now:"""
 
     response = client.chat.completions.create(
-        model="gpt-4-1106-preview",
+        model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "You are a skilled writer specializing in children's literature adaptations."},
             {"role": "user", "content": prompt}
