@@ -1,21 +1,143 @@
-## storytime overview
-This is an app that will turn any story that you give it into an audiobook. It is specifically trying to work with public domain stories like Cinderella, The Prince and the Pauper, any classic story.
+# Story Time Magic 🎵✨
 
-The idea is you can give it the story and then specify the target age for the story as well as the length of the story, and then it'll generate the story for you.
+A magical Streamlit application that turns any story into an audiobook, with support for multiple languages and voices. This tool uses GPT-4 to adapt stories for different reading levels and AWS Polly for high-quality text-to-speech conversion.
 
-You can review the story, edit it, and then you can click "Generate Audio." When you generate audio, it'll give you the audiobook version of that spoken.
+## ✨ Features
 
-## Setup
+* Transform text into engaging audiobooks
+* Support for multiple languages and accents
+* Customizable reading difficulty levels (5-15 years)
+* Adjustable story length
+* Interactive voice testing
+* Real-time story editing
+* Easy audiobook download in MP3 format
+* Beautiful, kid-friendly user interface
 
-- You're going to need to set up an ID with the OpenAI API.
-- You're going to need an Amazon Polly secret and ID. I'll include instructions for how to do that.
-- You're going to need to just download this repo.
-- Install the requirements, and it'll create the Streamlit app, and then you can go from there. Very simple setup, should be super, super simple.
+## 🎯 Key Capabilities
 
-So this is a Streamlit app, which just makes it easy to have a simple front end. Once you're all installed with all the requirements, you'll be in really good shape and have really high quality audiobooks. 
+* Story Generation
+  * Adapts stories to specified reading levels
+  * Maintains original narrative style and voice
+  * Preserves important quotes and memorable lines
+  * Customizable story length
+  
+* Voice Customization
+  * Multiple language options including:
+    * English (UK, US, Australia)
+    * Spanish (Spain, Mexico)
+    * French (France, Canada)
+    * German
+    * Italian
+    * Portuguese (Brazil)
+    * Japanese
+    * Korean
+    * Chinese (Mandarin)
+  * Various voice options per language
+  * Voice testing feature
+  
+* Audio Processing
+  * High-quality text-to-speech conversion
+  * Automatic chunk processing for long texts
+  * Seamless audio combining
+  * MP3 format output
 
-## Customizing
+## 🛠️ Prerequisites
 
-You can switch the parameters. I have it set to limit to 10,000 characters, but you can change that. You can switch the age target, and you know you could hook this up to different voice APIs, right? It'd be pretty easy to adjust this code to use a different voice API. 
+* Python 3.x
+* OpenAI API key
+* AWS credentials (Access Key ID and Secret Access Key)
+* AWS Polly access
 
-Let's say you want to use ElevenLabs because you like their voices, you could do that. You could create custom voices. Tortoise has some really good libraries that I'm going to be playing around with for creating custom voices. yeah and you could also play around with how the story is abridged and edited and I hope this is useful
+## 📦 Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/alephdao/storytime.git
+cd storytime
+```
+
+2. Install required packages:
+```bash
+pip install -r requirements.txt
+```
+
+3. Create a `.env` file with your API credentials:
+```env
+OPENAI_API_KEY=your_openai_api_key
+AWS_ACCESS_KEY_ID=your_aws_access_key
+AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+AWS_REGION=your_aws_region
+```
+
+## 🚀 Usage
+
+1. Start the Streamlit app:
+```bash
+streamlit run app.py
+```
+
+2. In your web browser:
+   * Enter the story title and author
+   * Select the desired reading level
+   * Choose the story length
+   * Pick your preferred language and voice
+   * Test the voice with a sample phrase
+   * Generate and edit your story
+   * Create and download your audiobook
+
+## 💻 Technical Details
+
+### Dependencies
+
+* `streamlit`: Web application framework
+* `boto3`: AWS SDK for Python
+* `openai`: OpenAI API client
+* `pydub`: Audio processing
+* `python-dotenv`: Environment variable management
+
+### Key Components
+
+* Story Generation (`generate_full_summary`):
+  * Uses GPT-4 for story adaptation
+  * Handles chunking for longer content
+  * Maintains narrative consistency
+  
+* Audio Synthesis (`process_file`):
+  * Manages text chunking
+  * Handles AWS Polly integration
+  * Combines audio segments
+  
+* Voice Management (`get_available_voices`):
+  * Fetches available voices from AWS Polly
+  * Handles language-specific voice selection
+  * Supports multiple dialects and accents
+
+## 🎨 UI Features
+
+* Gradient background with decorative patterns
+* Comic Sans MS font for child-friendly appearance
+* Animated buttons with hover effects
+* Color-coded sections
+* Progress indicators
+* Downloadable audio output
+
+## 🔐 Security Notes
+
+* Requires secure storage of API keys
+* Uses environment variables for sensitive data
+* Implements temporary file handling
+
+## 📝 Notes
+
+* Story length is limited for optimal processing
+* Audio generation time varies with story length
+* Internet connection required for API services
+* Some voices may not be available in all languages
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit issues and pull requests.
+
+## 📄 License
+
+MIT LICENSE
